@@ -8,7 +8,8 @@ section {
   position: relative;
   min-height: 100vh;
   min-width: 100%;
-  background: rgb(31, 31, 31);
+  /* background: rgb(95, 0, 139); */
+  background: linear-gradient(45deg, rgb(141, 0, 128), rgb(2, 0, 128));
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,6 +43,7 @@ section::after {
   z-index: 10;
   transition: transform 0.6s;
   transform-style: preserve-3d; /* Enable 3D transformations for child elements */
+  cursor: pointer;
 }
 
 .container:hover {
