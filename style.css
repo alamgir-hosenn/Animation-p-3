@@ -1,0 +1,77 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+section {
+  position: relative;
+  min-height: 100vh;
+  min-width: 100%;
+  background: rgb(31, 31, 31);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 2000px;
+}
+
+section::before {
+  content: " ";
+  position: absolute;
+  height: 240px;
+  width: 240px;
+  border-radius: 50%;
+  transform: translate(-150px, -100px);
+  background: linear-gradient(90deg, rgb(42, 212, 255), rgb(65, 255, 138));
+}
+
+section::after {
+  position: absolute;
+  content: " ";
+  height: 240px;
+  width: 240px;
+  border-radius: 50%;
+  transform: translate(150px, 100px);
+  background: linear-gradient(90deg, rgb(42, 212, 255), rgb(65, 255, 138));
+}
+
+.container {
+  position: relative;
+  height: 275px;
+  width: 475px;
+  z-index: 10;
+  transition: transform 0.6s;
+  transform-style: preserve-3d; /* Enable 3D transformations for child elements */
+}
+
+.container:hover {
+  transform: rotateY(180deg); /* Rotate the container on hover */
+}
+
+.container .card {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: -5px 5px 20px 0px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(20px); /* Apply backdrop filter */
+  -webkit-backdrop-filter: blur(20px); /* Safari support */
+  border-radius: 1em;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute; /* Allow for absolute positioning of front and back faces */
+  backface-visibility: hidden; /* Hide the back face when it's not visible */
+}
+.card img {
+  width: 100px;
+  margin-top: 1em;
+}
+.front-face {
+  transform: rotateY(0deg); /* Ensure front face is visible */
+}
+
+.back-face {
+  transform: rotateY(180deg); /* Rotate the back face to be hidden initially */
+}
